@@ -1,13 +1,8 @@
 import "./App.css";
+import Body from "./components/Body";
 
 function App() {
-  return (
-    <>
-      <div className="flex justify-center items-center text-3xl font-bold underline">
-        Starting with Neflix-GPT
-      </div>
-    </>
-  );
+  return <Body />;
 }
 
 export default App;
