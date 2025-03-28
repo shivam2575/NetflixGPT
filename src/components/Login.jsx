@@ -4,12 +4,20 @@ import { checkEmailAndPassword } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isSignInForm, setSignInForm] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
+  const firstName = useRef(null);
+  const lastName = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   const handleValidation = () => {
@@ -30,6 +38,19 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           console.log(user);
+          updateProfile(user, {
+            displayName: firstName.current.value + " " + lastName.current.value,
+            photoURL:
+              "https://yt3.ggpht.com/yti/ANjgQV_Fq3P48RVaNyOlo84LwavWVZ0uY1FsKUT_Jk3pn7pcOQaI=s88-c-k-c0x00ffffff-no-rj",
+          })
+            .then(() => {
+              const { displayName, email, uid, photoURL } = auth.currentUser;
+              dispatch(addUser({ uid, email, displayName, photoURL }));
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMsg(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -47,6 +68,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -74,12 +96,14 @@ const Login = () => {
             {!isSignInForm && (
               <>
                 <input
+                  ref={firstName}
                   className="my-2 p-2 w-full rounded-lg bg-black border-white border"
                   type="text"
                   placeholder="First name"
                   required
                 />
                 <input
+                  ref={lastName}
                   className="my-2 p-2 w-full rounded-lg bg-black border-white border"
                   type="text"
                   placeholder="Last name"
