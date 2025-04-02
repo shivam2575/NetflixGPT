@@ -19,5 +19,12 @@ NetflixGPT – A movie recommendation app powered by GPT-3.5 Turbo API, oﬀerin
 - Created redux store with userSlice
 - Implemented Sign out
 - Update profile
+- Unsubscribe to the onAuthStateChangeCallback
+- Added hardcoded values to a constants file
+
+# Bug Fixed
+
+- Signed up user display name and profile picture update
+- if user is not logged in redirect '/browse' to '/'(Login page) and vice-versa.
 
 # TODO
