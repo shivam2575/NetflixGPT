@@ -21,6 +21,9 @@ NetflixGPT – A movie recommendation app powered by GPT-3.5 Turbo API, oﬀerin
 - Update profile
 - Unsubscribe to the onAuthStateChangeCallback
 - Added hardcoded values to a constants file
+- Register for TMDB api and create an app for api keys
+- Get data from TMDB api of Now playing movie list on browse page
+- Added a custom hook for getting movies list
 
 # Bug Fixed
 

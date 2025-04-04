@@ -21,7 +21,6 @@ const Header = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { displayName, email, uid, photoURL } = user;
-        console.log(user);
         dispatch(addUser({ uid, email, displayName, photoURL }));
         navigate("/browse");
       } else {
