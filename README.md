@@ -31,6 +31,12 @@ NetflixGPT – A movie recommendation app powered by GPT-3.5 Turbo API, oﬀerin
 - updated store with trailer video
 - embedded the youtube video and made it autoplay and mute
 - added tailwindcss to main container
+- build secondary container
+- build movie list
+- build movie card component
+- added TMDB image CDN
+- made the browse page awesome with tailwind css
+- added custom hooks for adding [popular, top-rated & upcoming] movies.
 
 # Bug Fixed
 
