@@ -37,7 +37,9 @@ NetflixGPT – A movie recommendation app powered by GPT-3.5 Turbo API, oﬀerin
 - added TMDB image CDN
 - made the browse page awesome with tailwind css
 - added custom hooks for adding [popular, top-rated & upcoming] movies.
-- GPT search feature
+- GPT search page
+- GPT search bar
+- Multi-language feature on GPT search page (added feature)
 
 # Bug Fixed
 
